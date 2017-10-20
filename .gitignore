@@ -1,0 +1,34 @@
+################################
+## Windows
+################################
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Mac crap
+.DS_Store
+
+################################
+## PhpStorm
+################################
+.idea
+atlassian-ide-plugin.xml
+
+################################
+## Sublime Text
+################################
+*.sublime-workspace
+
+################################
+## Frontend structure
+################################
+_frontend/node_modules/
+_frontend/bower_components/
+assets/css/main.scss
+assets/css/main.css.map
+assets/css/main.css
+assets/js/boot.map
+assets/js/boot.js

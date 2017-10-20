@@ -1,0 +1,125 @@
+.picture {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+
+  &:hover {
+    animation: tada .5s ease;
+  }
+
+  &.dave {
+    background-image: url('../img/dave.png');
+  }
+  &.pat {
+    background-image: url('../img/pat.png');
+  }
+  &.max {
+    background-image: url('../img/max.png');
+  }
+  &.luc {
+    background-image: url('../img/luc.png');
+  }
+  &.cindy {
+    background-image: url('../img/cindy.png');
+  }
+  &.guillaume {
+    background-image: url('../img/guillaume.png');
+  }
+  &.erick {
+    background-image: url('../img/erick.png');
+  }
+  &.maxime {
+    background-image: url('../img/maxime.png');
+  }
+  &.louise-eve {
+    background-image: url('../img/louise-eve.png');
+  }
+  &.simon {
+    background-image: url('../img/simon.png');
+  }
+  &.olivier {
+    background-image: url('../img/olivier.png');
+  }
+  &.andrew {
+    background-image: url('../img/andrew.png');
+  }
+  &.louis {
+    background-image: url('../img/louis.png');
+  }
+}
+
+@media (max-width: 480px) {
+  .picture {
+    height: 320px;
+    width: 320px;
+  }
+}
+
+
+
+@media (max-width: 700px) and (orientation: landscape) {
+  .picture {
+    height: 240px;
+    width: 240px;
+  }
+}
+
+@media (max-width: 600px) and (orientation: landscape) {
+  .picture {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate3d(0, 0, 1, -200deg);
+    transform-origin: center;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+  }
+}
+
+@keyframes tada {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  }
+}

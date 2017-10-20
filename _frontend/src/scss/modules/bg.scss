@@ -1,0 +1,59 @@
+[data-module='Bg'] {
+  animation: rotate 30s infinite linear;
+  backface-visibility: hidden;
+  height: 100vh;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transform: translateZ(0);
+  width: 100vw;
+
+  will-change: transform;
+
+  .slide {
+    backface-visibility: hidden;
+    display: block;
+    height: 66vw;
+    left: 50%;
+    opacity: .9;
+    position: absolute;
+    top: 50%;
+    transform-origin: 0 0;
+    width: 66vw;
+
+    &:nth-child(1) {
+      transform: translateZ(0) rotate(0deg);
+    }
+    &:nth-child(2) {
+      transform: translateZ(0) rotate(72deg);
+    }
+    &:nth-child(3) {
+      transform: translateZ(0) rotate(144deg);
+    }
+    &:nth-child(4) {
+      transform: translateZ(0) rotate(216deg);
+    }
+    &:nth-child(5) {
+      transform: translateZ(0) rotate(288deg);
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  [data-module='Bg'] {
+    .slide {
+      height: 63vh;
+      width: 63vh;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translateZ(0) rotate(0deg);
+  }
+  to {
+    transform: translateZ(0) rotate(360deg);
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "frontend-base",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "Maxime Daoust",
+    "url": "http://sidlee.com"
+  },
+  "private": true,
+  "dependencies": {
+    "autoprefixer": "^6.5.1",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "browserify-shim": "^3.8.12",
+    "csswring": "^5.1.0",
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.1",
+    "grunt-scss-imports": "0.0.2",
+    "grunt-text-replace": "^0.4.0",
+    "load-grunt-config": "^0.19.2",
+    "minifyify": "^7.3.3",
+    "throttle-debounce": "^1.0.1",
+    "ua-parser-js": "^0.7.10"
+  },
+  "devDependencies": {
+    "debug": "^2.2.0",
+    "grunt-csscomb": "^3.1.1",
+    "time-grunt": "^1.4.0",
+    "watchify": "^3.7.0"
+  },
+  "browser": {},
+  "browserify-shim": {},
+  "uglifyify": {}
+}

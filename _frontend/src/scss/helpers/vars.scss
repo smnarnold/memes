@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+$xs: 479px;
+$sm: 767px;
+$md: 991px;
+$lg: 1439px;
+
+$s: .3s;
+
+$cacheBreaker: random(900000000000) + 99999999999;
+
+$palettes: (
+  grey: (
+    light: #bfbfbf,
+    base:  #7f7f7f,
+    dark:  #404040,
+  ),
+  blue: (
+    base:  #a9e3f2
+  )
+);
+
+$fonts: (
+    sans-serifs: #{ helvetica, arial, sans-serif },
+    serifs: #{ Georgia, Times, serif }
+);

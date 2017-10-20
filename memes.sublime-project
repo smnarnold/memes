@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns": ["assets", "node_modules", "bower_components"],
+			"file_exclude_patterns": [".gitignore", "*sublime-project", "humans.txt"]
+		}
+	],
+    "settings":
+    {
+        "tab_size": 4
+    },
+}
