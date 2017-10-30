@@ -1,14 +1,15 @@
 <?php
-    $name = "dave";
-    $top = "Top Txt";
-    $bottom = "Bottom txt";
+    $path_info = parse_path();
+    $name = $path_info['call_parts'][0];
+    $top = $path_info['call_parts'][1];
+    $bottom = $path_info['call_parts'][2];
     $colorsApiUrl = "http://www.colourlovers.com/api/palettes/random?format=json";
-
     $colorsJson = file_get_contents($colorsApiUrl);
     $colorsObj = json_decode($colorsJson);
 
     function parse_path() {
         $path = array();
+
         if (isset($_SERVER['REQUEST_URI'])) {
             $request_path = explode('?', $_SERVER['REQUEST_URI']);
 
@@ -23,19 +24,19 @@
         return $path;
     }
 
-    $path_info = parse_path();
-
-    if(isset($path_info['call_parts'][0]) && !empty($path_info['call_parts'][0])) {
-        $name = $path_info['call_parts'][0];
-    }
-
-    if(isset($path_info['call_parts'][1])) {
-        $top = $path_info['call_parts'][1];
-    }
-
-    if(isset($path_info['call_parts'][2])) {
-        $bottom = $path_info['call_parts'][2];
+    if(!isset($top)) {
+        $top = "Cliquez ici pour modifier";
     } 
+
+    if(!isset($bottom)) {
+        $bottom = "Cliquez ici pour modifier";
+    } 
+
+    if(!isset($name) || empty($name) ) {
+        $name = "simon-arnold";
+        $top = "404";
+        $bottom = "C'est ça faute ↑";
+    }
 ?>
 <!doctype html>
 <html lang="fr">
@@ -50,12 +51,12 @@
     
     <!-- Opengraph / Twitter card -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@arnolali" />
+    <meta name="twitter:site" content="@smnarnold" />
     <meta property="og:title" name="twitter:title" content="<?= ucfirst($name) ?>" />
     <meta property="og:description" name="twitter:description" content="<?= ucfirst($top) ?>... <?= $bottom ?>" />
     <meta property="og:type" content="website" />
     <meta property="og:image" name="twitter:image" content="/assets/img/share-img/<?= strtolower($name) ?>.jpg" />
-    <meta property="og:url" content="http://simonarnold.ca/<?= $name ?>/<?= $top ?>/<?= $bottom ?>" />
+    <meta property="og:url" content="http://meme.smnarnold.com/<?= $name ?>/<?= $top ?>/<?= $bottom ?>" />
     
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
@@ -69,6 +70,15 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/main.css?v=imglxy7qfhgg"/>
+    <style>
+        .slide:nth-child(1) { background-color: #<?= $colorsObj[0]->colors[0] ?>; }
+        .slide:nth-child(2) { background-color: #<?= $colorsObj[0]->colors[1] ?>; }
+        .slide:nth-child(3) { background-color: #<?= $colorsObj[0]->colors[2] ?>; }
+        .slide:nth-child(4) { background-color: #<?= $colorsObj[0]->colors[3] ?>; }
+        .slide:nth-child(5) { background-color: #<?= $colorsObj[0]->colors[4] ?>; }
+
+        .picture { background-image: url(/assets/img/<?= strtolower($name) ?>.png); }
+    </style>
 </head>
 
 <body>
@@ -76,19 +86,18 @@
 
     <div data-page="Home" data-name="<?= strtolower($name) ?>" data-top="<?= $top ?>" data-bottom="<?= $bottom ?>">
         <div data-module="Bg">
-            <span class="slide" style="background-color: #<?= $colorsObj[0]->colors[0] ?>;"></span>
-            <span class="slide" style="background-color: #<?= $colorsObj[0]->colors[1] ?>;"></span>
-            <span class="slide" style="background-color: #<?= $colorsObj[0]->colors[2] ?>;"></span>
-            <span class="slide" style="background-color: #<?= $colorsObj[0]->colors[3] ?>;"></span>
-            <span class="slide" style="background-color: #<?= $colorsObj[0]->colors[4] ?>;"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
         </div>
-        <header class="text top" contenteditable="true">
-            <?= $top ?>
-        </header>
-        <div class="picture <?= strtolower($name) ?>" style="background-image: url(/assets/img/<?= strtolower($name) ?>.png)"></div>
-        <footer class="text bottom" contenteditable="true">
-            <?= $bottom ?>
-        </footer>
+
+        <header class="text top" contenteditable="true"><?= $top ?></header>
+
+        <div class="picture <?= strtolower($name) ?>"></div>
+
+        <footer class="text bottom" contenteditable="true"><?= $bottom ?></footer>
     </div>
 
     <!-- CDN -->
@@ -111,7 +120,6 @@
 
       ga('create', 'UA-37943713-4', 'auto');
       ga('send', 'pageview');
-
     </script>
 </body>
 </html>

@@ -22,8 +22,6 @@ export default class extends Page {
     init() {
         super.init();
         this.bindEvents();
-
-        console.log(this.dom.el.data("page"));
     }
 
     bindEvents() {
@@ -34,15 +32,19 @@ export default class extends Page {
     }
 
     updateUrl() {
-        this.top = encodeURI(this.dom.top.text().trim().split(" ").join("+"));
-        this.bottom = encodeURI(
+        this.top = escape(
+            this.dom.top.text().trim().split(" ").join("+")
+        );
+        this.bottom = escape(
             this.dom.bottom.text().trim().split(" ").join("+")
         );
+
+        console.log(this.top, this.bottom);
 
         history.pushState(
             null,
             null,
-            `/${this.name}/${this.top}/${this.bottom.split(" ").join("+")}`
+            `/${this.name}/${this.top}/${this.bottom}`
         );
     }
 }
