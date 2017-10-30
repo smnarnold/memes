@@ -1,7 +1,5 @@
 import "babel-polyfill";
 
-var Modules = {};
-
 var Pages = {
     Home: require("./pages/Home").default
 };
