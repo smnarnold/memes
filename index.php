@@ -24,11 +24,11 @@
         return $path;
     }
 
-    if(!isset($top)) {
+    if(!isset($top) || empty($top)) {
         $top = "Cliquez ici pour modifier";
     } 
 
-    if(!isset($bottom)) {
+    if(!isset($bottom) || empty($bottom)) {
         $bottom = "Cliquez ici pour modifier";
     } 
 
