@@ -1,4 +1,4 @@
-[data-module='Bg'] {
+.bg {
   animation: rotate 30s infinite linear;
   backface-visibility: hidden;
   height: 100vh;
@@ -41,7 +41,7 @@
 }
 
 @media (orientation: portrait) {
-  [data-module='Bg'] {
+  .bg {
     .slide {
       height: 63vh;
       width: 63vh;

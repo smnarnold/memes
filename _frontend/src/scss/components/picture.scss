@@ -12,46 +12,6 @@
   &:hover {
     animation: tada .5s ease;
   }
-
-  &.dave {
-    background-image: url('../img/dave.png');
-  }
-  &.pat {
-    background-image: url('../img/pat.png');
-  }
-  &.max {
-    background-image: url('../img/max.png');
-  }
-  &.luc {
-    background-image: url('../img/luc.png');
-  }
-  &.cindy {
-    background-image: url('../img/cindy.png');
-  }
-  &.guillaume {
-    background-image: url('../img/guillaume.png');
-  }
-  &.erick {
-    background-image: url('../img/erick.png');
-  }
-  &.maxime {
-    background-image: url('../img/maxime.png');
-  }
-  &.louise-eve {
-    background-image: url('../img/louise-eve.png');
-  }
-  &.simon {
-    background-image: url('../img/simon.png');
-  }
-  &.olivier {
-    background-image: url('../img/olivier.png');
-  }
-  &.andrew {
-    background-image: url('../img/andrew.png');
-  }
-  &.louis {
-    background-image: url('../img/louis.png');
-  }
 }
 
 @media (max-width: 480px) {
@@ -60,8 +20,6 @@
     width: 320px;
   }
 }
-
-
 
 @media (max-width: 700px) and (orientation: landscape) {
   .picture {

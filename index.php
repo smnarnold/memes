@@ -1,8 +1,8 @@
 <?php
     $path_info = parse_path();
     $name = $path_info['call_parts'][0];
-    $top = $path_info['call_parts'][1];
-    $bottom = $path_info['call_parts'][2];
+    $top = urldecode($path_info['call_parts'][1]);
+    $bottom = urldecode($path_info['call_parts'][2]);
     $colorsApiUrl = "http://www.colourlovers.com/api/palettes/random?format=json";
     $colorsJson = file_get_contents($colorsApiUrl);
     $colorsObj = json_decode($colorsJson);
@@ -81,35 +81,23 @@
     </style>
 </head>
 
-<body>
-    <?php include_once("analyticstracking.php") ?>
-
-    <div data-page="Home" data-name="<?= strtolower($name) ?>" data-top="<?= $top ?>" data-bottom="<?= $bottom ?>">
-        <div data-module="Bg">
-            <span class="slide"></span>
-            <span class="slide"></span>
-            <span class="slide"></span>
-            <span class="slide"></span>
-            <span class="slide"></span>
-        </div>
-
-        <header class="text top" contenteditable="true"><?= $top ?></header>
-
-        <div class="picture <?= strtolower($name) ?>"></div>
-
-        <footer class="text bottom" contenteditable="true"><?= $bottom ?></footer>
+<body data-name="<?= strtolower($name) ?>" data-top="<?= $top ?>" data-bottom="<?= $bottom ?>">
+    <div class="bg">
+        <span class="slide"></span>
+        <span class="slide"></span>
+        <span class="slide"></span>
+        <span class="slide"></span>
+        <span class="slide"></span>
     </div>
 
-    <!-- CDN -->
-    <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <header class="text top" contenteditable="true"><?= $top ?></header>
 
-    <!-- CDN Fallback -->
-    <script>
-        window.jQuery || document.write(unescape("%3Cscript src='/assets/js/libs/jquery-2.2.4.min.js'%3E%3C/script%3E"));
-    </script>
+    <div class="picture <?= strtolower($name) ?>"></div>
+
+    <footer class="text bottom" contenteditable="true"><?= $bottom ?></footer>
 
     <!-- Boot -->
-    <script src="/assets/js/boot.js"></script>
+    <script src="/assets/js/main.js"></script>
     
     <!-- Analytics -->
     <script>
